@@ -1,3 +1,5 @@
 #!/bin/sh
 
-/usr/bin/invoke_app "$@" -C rappture -t mavelp
+/usr/bin/invoke_app "$@" -C "python @tool/bin/App.py nanohub" -t mavelp \
+                         -u anaconda3-5.1
+
