@@ -85,8 +85,8 @@ Experience level
 Type of interaction
 Provide links to any user surveys, questionnaires, interviews, feedback or other relevant information.-->
 Two class of users are considered:
-1. Academic users (experimentalist and computationalist): The tool is designed to be simple for user in order to make it easy for experimentalist to use it by selecting the right materials. Computationalist also have the option to add further algorithms as well as data into the dataset of MA-VELP. Basic understanding of coding language and python is required to use the tool.
-2. Industry users: Similar to experimentalist they can use tool simply and guid their manfacturing toward more efficient one. Basic understanding of coding language and python is required to use the tool.
+1. Academic users (experimentalist and computationalist): The tool is designed to be simple for user in order to make it easy for experimentalist to use it by selecting the right materials. Computationalist also have the option to add further algorithms as well as data into the dataset of MA-VELP. Basic understanding of coding language and python is required to use the tool. Users can either use it as an educational tool for applied machine learning in physics and chemistry or as a tool to guide their research.
+2. Industry users: Similar to experimentalist they can use tool simply and guid their manfacturing toward more efficient one. Basic understanding of coding language and python is required to use the tool. The tool can guide the user toward more efficient process during the manufacturing of 2D materials.
 
 ### 3.2 User Requirements
 <!-- Provide a list of issue links to document the main set of user requirements to be satisfied by this release.  Use the user requirement template to draft thense issues.  A well written user requirement should be easy to justify (Rational) and should be testable.  List in order of priority as must have, should have or nice to have for each use case. -->
