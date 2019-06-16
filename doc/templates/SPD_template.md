@@ -1,7 +1,7 @@
 # nanoMFG Software Planning Document
 <!-- Replace text below with long title of project:short-name -->
-## The Coolest nanoHUB Tool: nanocool
-### Target Release: #.#.# : Month Day, 20##
+## Machine-learning Assisted Virtual Exfoliation of 2D Materials via Liquid-Phase: MA-VELP
+### Target Release: 1.0.0 : Dec 2, 2019
 
 ## Development Team
 <!-- Complete table for all team members 
@@ -10,44 +10,59 @@
 -->
 Name | Role | github user | nanohub user | email | status
 ---|---|---|---|---|---
-Joe Shmo | PI | jshmo | jshmo | jshmo@nanocool.co | active
-Alice Land | developer | alice1 | alice2 | alice@wonderland | inactive
+Narayana Aluru | PI | - | - | aluru@illinois.edu | inactive
+Alireza Moradzadeh | developer | moradza | moradza | moradza2@illinois.edu | active
+Darren Adams | developer | dadamsncsa | dadamsncsa | dadams@illinois.edu | active
 
-**nanoMFG Github Team(s):** @coolteam
+**nanoMFG Github Team(s):** @nanoMFG/ma-velp-dev
 **nanoHUB Group(s):**
 
 ## 1. Introduction
 <!-- A  concise description of the current iteration of work. -->
+Currently, the machine learning algorithm and GUI are implemented in Python. Algorithms and their compatibility are tested. 
 
 ### 1.1 Purpose and Vision Statement
 <!--Why are we building this tool? What is the key benefit? How does it relate to existing tools and existing software? How does it fit into the overall objectives for the nanoMFG node? Who will use it?-->
-
+MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
 ### 1.2 References
 <!--List any documents or background material that are relevant.  Links are useful. For instance, a link to a wiki or readme page in the project repository, or link to a uploaded file (doc, pdf, ppt, etc.).-->
+https://en.wikipedia.org/wiki/Graphene_production_techniques
+https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation
+https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683
+https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing
+
 
 ## 2 Overview and Major Planned Features
 <!--Provide and overview characterising this proposed release.  Describe how users will interact with each proposed feature.-->
+The current release to select the types of cations and anions, they want to study. Futhermore, users will have the option to select the machine-learning algorithms based on the accuracy and needs. Optimization algorithm for finding the optimal solvent is also avaialble through the GUI as well as relative performance of a specific solvent. 
 
 ### 2.1 Product Background and Strategic Fit
 <!--Provide context for the proposed product.  Is this a completely new projects, or next version of an existing project? This can include a description of any contextual research, or the status of any existing prototype application.  If this SPD describes a component, describe its relationship to larger system. Can include diagrams.-->
+The tool is first of its kind to the best of our knoweldge.
 
 ### 2.2 Scope and Limitations for Current Release
 <!--List the all planned goals/features for this release.  These should be links to issues.  Add a new subsection for each release.  Equally important, document feature you explicity are not doing at this time-->
 
+Current release requires start from a terminal, in future release it will be replaced with jupyter notebook.
 
-#### Release Notes v#.#.#
+#### Release Notes v1.0.0
 ##### Planned Features
+GUI enabled.
+Machine Learning Algorithm Selection and Options
 
 ##### Not Done
 
 ### 2.3 Scope and Limitations for Subsequent Releases
 <!--Short summary of  future envisioned roadmap for subsequent efforts.-->
+Moving to jupyter notebook.
+Adding multi-objective cost function. 
 
 ### 2.3 Operating Environment
 <!--Describe the target environment.  Identify components or application that are needed.  Describe technical infrastructure need to support the application.-->
-
+A Python of 3.0 or higher is required.
 ### 2.4 Design and Implementation Constraints
 <!--This could include pre-existing code that needs to be incorporated ,a certain programming language or toolkit and software dependencies.  Describe the origin and rationale for each constraint.-->
+Standard modules of python and tensorflow, scikit learn, and tkinter modules are required.
 
 ## 3 User Interaction and Design
 
@@ -59,6 +74,9 @@ Features used
 Experience level
 Type of interaction
 Provide links to any user surveys, questionnaires, interviews, feedback or other relevant information.-->
+Two class of users are considered:
+1. Academic users (experimentalist and computationalist): The tool is designed to be simple for user in order to make it easy for experimentalist to use it by selecting the right materials. Computationalist also have the option to add further algorithms as well as data into the dataset of MA-VELP.
+2. Industry users: Similar to experimentalist they can use tool simply and guid their manfacturing toward more efficient one.
 
 ### 3.2 User Requirements
 <!-- Provide a list of issue links to document the main set of user requirements to be satisfied by this release.  Use the user requirement template to draft thense issues.  A well written user requirement should be easy to justify (Rational) and should be testable.  List in order of priority as must have, should have or nice to have for each use case. -->
@@ -66,6 +84,7 @@ Provide links to any user surveys, questionnaires, interviews, feedback or other
 
 ### 3.3 Proposed User Interface
 <!--Could include drawn mockups, screenshots of prototypes, comparison to existing software and other descriptions.-->
+
 
 
 ## 4. Data And Quality Attributes
