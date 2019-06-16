@@ -30,6 +30,16 @@ https://en.wikipedia.org/wiki/Graphene_production_techniques
 https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation
 https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683
 https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing
+### 1.3 Why are we building this tool?
+The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
+
+### 1.4 What is the key benefit?
+It provide an easy GUI for experimentalist to guid them, especially in initial steps. Therefore, reducing number of iterations and costs required during experiment design.
+
+### 1.5 How does this tool relate to existing tools and existing software?
+The dataset grow in size.
+### 1.6 How does it fit into the overall objectives for the nanoMFG node? Who will use it?
+The tool main focus is to advance the solvent design for exfoliation via liquid-phase. Experimentalist and nano-manufacturing companies.
 
 
 ## 2 Overview and Major Planned Features
