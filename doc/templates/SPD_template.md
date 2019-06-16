@@ -10,7 +10,7 @@
 -->
 Name | Role | github user | nanohub user | email | status
 ---|---|---|---|---|---
-Narayana Aluru | PI | - | - | aluru@illinois.edu | inactive
+Narayana Aluru | PI | - | - | aluru@illinois.edu | active
 Alireza Moradzadeh | developer | moradza | moradza | moradza2@illinois.edu | active
 Darren Adams | developer | dadamsncsa | dadamsncsa | dadams@illinois.edu | active
 
