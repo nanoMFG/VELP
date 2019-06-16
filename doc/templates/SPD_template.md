@@ -1,7 +1,7 @@
 # nanoMFG Software Planning Document
 <!-- Replace text below with long title of project:short-name -->
 ## Machine-learning Assisted Virtual Exfoliation of 2D Materials via Liquid-Phase: MA-VELP
-### Target Release: 1.0.0 : Dec 2, 2019
+### Target Release: 1.0.0 : Oct 15 , 2019
 
 ## Development Team
 <!-- Complete table for all team members 
@@ -84,21 +84,29 @@ Two class of users are considered:
 
 ### 3.3 Proposed User Interface
 <!--Could include drawn mockups, screenshots of prototypes, comparison to existing software and other descriptions.-->
-
+https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide10.JPG
+https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG
+https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG
 
 
 ## 4. Data And Quality Attributes
 
 ### 4.1 Data Dictionary
 <!--Summarize inputs and outputs for the application.-->
+* Dataset Input: Composition of solvents and their corresponding potential of mean force for exfoliation
+* User Input: Solvents including types of cations and anions.
+* Output: Optimal solvent or Potential of mean force for specific composition of solvent.
 
 ### 4.2 Usability and Performance
 <!--Summarize usability requirements such as easy of adoption for new users (eg example data),  inline documentation, avoiding errors, efficient interaction, etc.  Describe performance expectations  and/or document challenges.  Note you can reference user requirements from above if needed. -->
+Check out the 3.3 Images.
 
 ### 4.3 Testing, Verification and Validation
 <!--Describe What data is necessary to verify the basic functionality of the application.  Provide a testing plan that includes a list of issues for each planned activity.  Describe data sets that are needed to test validation.-->
-
+The user can replace the dataset with an analytical dataset with known analytical results and check if they can reproduce the same result with the tool.
 ### 4.4 Uncertainty Quantification
 <!--Identify and document possible sources of uncertainty. Categorize with standard labels, such as parametric, structural, algorithmic, experimental, interpolation.
 
 Develop a plan for measuring and documenting uncertainty, e.g., using forward propagation or inverse UQ, and showing it in the application, if applicable.-->
+The most fundamental test can be done through selecting a specific composition of solvent and removing it from the dataset, and see how well the tool can predict the output for that specific solvent.
+
