@@ -73,6 +73,34 @@ A Python of 3.0 or higher is required.
 ### 2.4 Design and Implementation Constraints
 <!--This could include pre-existing code that needs to be incorporated ,a certain programming language or toolkit and software dependencies.  Describe the origin and rationale for each constraint.-->
 Standard modules of python and tensorflow, scikit learn, and tkinter modules are required.
+### 2.5 Components
+List of critical variables and functions in the tool
+1.	Class Kernel_Optimization(): The role of this class is to fit a kernel-based machine learning model on the MD data based on user selection. 
+1.1.	function init(): initialize kernel 
+1.2.	function kr_fun(): return fitted machine learning model
+1.3.	function read_data(): return dataset
+1.4.	function constraint(): applies constraint during optimization
+1.5.	function minimize(): minimizes the machine learning model using nedler-mead algorithm
+2.	Class DNN():The role of this class is to fit an artificial neural network-based machine learning model on the MD data based on user selection. 
+2.1.	function init(): initialize kernel 
+2.2.	function kr_fun(): return fitted machine learning model
+2.3.	function read_data(): return dataset
+2.4.	function constraint(): applies constraint during optimization
+2.5.	function minimize(): minimizes the machine learning model using nedler-mead algorithm
+2.6.	function mlp(): return value of y based on  the fitted ML model
+2.7.	function save()  and load(): save the network after training or load a saved network
+3.	Class App(): Handles the GUI launching and combining different classes. 
+
+
+
+We generate data from various known function which have analytical solutions, we check whether model can predict analytical solution or not for various cases.
+
+Separately test each function in different classes for its performance.
+Test class as a whole.
+Test combination of various class.
+All the test above is performed on the data set with known solution.
+Explain the reasoning behind your testing plan
+Starting from most elementary functions in each class we test them separately making sure each function works. Then, the whole class is test and function communication. Then, combination of all the classes together investigated. Through this method, we test the integrity and accuracy at the same time, and it will be easier to know if there is any bug or flaw. 
 
 ## 3 User Interaction and Design
 
