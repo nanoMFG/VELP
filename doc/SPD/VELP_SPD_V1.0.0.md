@@ -26,10 +26,11 @@ Currently, the machine learning algorithm and GUI are implemented in Python. Alg
 MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
 ### 1.2 References
 <!--List any documents or background material that are relevant.  Links are useful. For instance, a link to a wiki or readme page in the project repository, or link to a uploaded file (doc, pdf, ppt, etc.).-->
-https://en.wikipedia.org/wiki/Graphene_production_techniques
-https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation
-https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683
-https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing
+https://en.wikipedia.org/wiki/Graphene_production_techniques<br/>
+https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation<br/>
+https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683<br/>
+https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing<br/>
+
 ### 1.3 Why are we building this tool?
 The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
 
@@ -73,6 +74,34 @@ A Python of 3.0 or higher is required.
 ### 2.4 Design and Implementation Constraints
 <!--This could include pre-existing code that needs to be incorporated ,a certain programming language or toolkit and software dependencies.  Describe the origin and rationale for each constraint.-->
 Standard modules of python and tensorflow, scikit learn, and tkinter modules are required.
+### 2.5 Components
+List of critical variables and functions in the tool
+1.	Class Kernel_Optimization(): The role of this class is to fit a kernel-based machine learning model on the MD data based on user selection. 
+1.1.	function init(): initialize kernel 
+1.2.	function kr_fun(): return fitted machine learning model
+1.3.	function read_data(): return dataset
+1.4.	function constraint(): applies constraint during optimization
+1.5.	function minimize(): minimizes the machine learning model using nedler-mead algorithm
+2.	Class DNN():The role of this class is to fit an artificial neural network-based machine learning model on the MD data based on user selection. 
+2.1.	function init(): initialize kernel 
+2.2.	function kr_fun(): return fitted machine learning model
+2.3.	function read_data(): return dataset
+2.4.	function constraint(): applies constraint during optimization
+2.5.	function minimize(): minimizes the machine learning model using nedler-mead algorithm
+2.6.	function mlp(): return value of y based on  the fitted ML model
+2.7.	function save()  and load(): save the network after training or load a saved network
+3.	Class App(): Handles the GUI launching and combining different classes. 
+
+
+
+We generate data from various known function which have analytical solutions, we check whether model can predict analytical solution or not for various cases.
+
+Separately test each function in different classes for its performance.
+Test class as a whole.
+Test combination of various class.
+All the test above is performed on the data set with known solution.
+Explain the reasoning behind your testing plan
+Starting from most elementary functions in each class we test them separately making sure each function works. Then, the whole class is test and function communication. Then, combination of all the classes together investigated. Through this method, we test the integrity and accuracy at the same time, and it will be easier to know if there is any bug or flaw. 
 
 ## 3 User Interaction and Design
 
@@ -94,9 +123,9 @@ Two class of users are considered:
 
 ### 3.3 Proposed User Interface
 <!--Could include drawn mockups, screenshots of prototypes, comparison to existing software and other descriptions.-->
-https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide10.JPG
-https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG
-https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide10.JPG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG">
 
 
 ## 4. Data And Quality Attributes
