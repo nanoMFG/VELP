@@ -26,10 +26,11 @@ Currently, the machine learning algorithm and GUI are implemented in Python. Alg
 MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
 ### 1.2 References
 <!--List any documents or background material that are relevant.  Links are useful. For instance, a link to a wiki or readme page in the project repository, or link to a uploaded file (doc, pdf, ppt, etc.).-->
-https://en.wikipedia.org/wiki/Graphene_production_techniques
-https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation
-https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683
-https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing
+https://en.wikipedia.org/wiki/Graphene_production_techniques<br/>
+https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation<br/>
+https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683<br/>
+https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing<br/>
+
 ### 1.3 Why are we building this tool?
 The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
 
