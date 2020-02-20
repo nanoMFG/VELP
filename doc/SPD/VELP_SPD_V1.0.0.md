@@ -25,8 +25,10 @@ Currently, the machine learning algorithm and GUI are implemented in Python. Alg
 <!--Why are we building this tool? What is the key benefit? How does it relate to existing tools and existing software? How does it fit into the overall objectives for the nanoMFG node? Who will use it?-->
 MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
 
+#### Why is this tool needed?
 The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
 
+#### What are the key Benefits
 It provide an easy GUI for experimentalist to guid them, especially in initial steps. Therefore, reducing number of iterations and costs required during experiment design.
 
 ##### How does this tool relate to existing tools and existing software?
