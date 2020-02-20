@@ -63,12 +63,16 @@ The tool is first of its kind to the best of our knoweldge.
 
 Current release requires start from a terminal, in future release it will be replaced with jupyter notebook.
 
-#### Release Notes v1.0.0
-##### Planned Features
+##### 2.2.1 Planned Features
 GUI enabled.
 Machine Learning Algorithm Selection and Options
 
-##### Not Done
+#### 2.2.2 Release Notes <!-- optional record of each release -->
+##### v#.#.#
+
+#### Release Notes v#.#.#
+
+##### Not Done v#.#.#
 
 ### 2.3 Scope and Limitations for Subsequent Releases
 <!--Short summary of  future envisioned roadmap for subsequent efforts.-->
