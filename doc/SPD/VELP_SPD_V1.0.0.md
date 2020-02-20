@@ -127,6 +127,11 @@ Two class of users are considered:
 <img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG"> <br/>
 <img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG">
 
+### 3.4 Documentation Plan
+<!-- List planned documentation activities -->
+
+### 3.5 User Outreach Plan
+<!-- List upcoming activities designed to elicit user feedback and/or engage new users.  Use issues for activities that will be completed this iteration-->
 
 ## 4. Data And Quality Attributes
 
