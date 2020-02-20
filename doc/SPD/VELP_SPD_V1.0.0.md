@@ -24,6 +24,18 @@ Currently, the machine learning algorithm and GUI are implemented in Python. Alg
 ### 1.1 Purpose and Vision Statement
 <!--Why are we building this tool? What is the key benefit? How does it relate to existing tools and existing software? How does it fit into the overall objectives for the nanoMFG node? Who will use it?-->
 MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
+
+The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
+
+It provide an easy GUI for experimentalist to guid them, especially in initial steps. Therefore, reducing number of iterations and costs required during experiment design.
+
+##### How does this tool relate to existing tools and existing software?
+The dataset grow in size.
+
+##### How does this project fit into the overall objectives for the nanoMFG node? Who will use it?
+The tool main focus is to advance the solvent design for exfoliation via liquid-phase. Experimentalist and nano-manufacturing companies.
+
+
 ### 1.2 References
 <!--List any documents or background material that are relevant.  Links are useful. For instance, a link to a wiki or readme page in the project repository, or link to a uploaded file (doc, pdf, ppt, etc.).-->
 https://en.wikipedia.org/wiki/Graphene_production_techniques<br/>
@@ -31,16 +43,9 @@ https://en.wikipedia.org/wiki/Intercalation_(chemistry)#Exfoliation<br/>
 https://pubs.acs.org/doi/abs/10.1021/acsnano.5b02683<br/>
 https://drive.google.com/drive/folders/1RCL-sspuuhA0A5rUhRUl6-UN7yplvEnQ?usp=sharing<br/>
 
-### 1.3 Why are we building this tool?
-The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
 
-### 1.4 What is the key benefit?
-It provide an easy GUI for experimentalist to guid them, especially in initial steps. Therefore, reducing number of iterations and costs required during experiment design.
 
-### 1.5 How does this tool relate to existing tools and existing software?
-The dataset grow in size.
-### 1.6 How does it fit into the overall objectives for the nanoMFG node? Who will use it?
-The tool main focus is to advance the solvent design for exfoliation via liquid-phase. Experimentalist and nano-manufacturing companies.
+
 
 
 ## 2 Overview and Major Planned Features
