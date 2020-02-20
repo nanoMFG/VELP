@@ -26,7 +26,9 @@ Currently, the machine learning algorithm and GUI are implemented in Python. Alg
 MA-VELP is a tool to combine data obatined from molecular dynamics (MD) simulations of exfoliation via liquid-phase with machine learning algorithm. After data obatined from MD simulation, they are analyzed using various machine learning algorithms to obtain optimal solvent composition, which facilitates the exfoliation process. Considering the nano-scale of phenomena occurring in the exfoliation process, combination of computational physics and machine learning is one of the best methods to optimize the solvent to further improve the exfoliation process, guiding experimentalist in initial steps with reducing numbers of expensive experimental attempts, especially as commonly used solvents in the LPE process are room temperature ionic liquids (RTILs) which have up to several millions of possible solvents.
 
 #### Why is this tool needed?
-The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase.
+The tool is designed with objective to facilitate the design of solvent for exfoliation via liquid-phase, it provides a data-driven framework for following objectives:
+   1. predict perforamnce of a given solvent through training a specific machine learning algorithm
+   2. allows for design of a solvent composition with optimal performance.
 
 #### What are the key Benefits
 It provide an easy GUI for experimentalist to guid them, especially in initial steps. Therefore, reducing number of iterations and costs required during experiment design.
@@ -35,7 +37,7 @@ It provide an easy GUI for experimentalist to guid them, especially in initial s
 The dataset grow in size.
 
 ##### How does this project fit into the overall objectives for the nanoMFG node? Who will use it?
-The tool main focus is to advance the solvent design for exfoliation via liquid-phase. Experimentalist and nano-manufacturing companies.
+The tool main focus is to advance the solvent design for exfoliation via liquid-phase. Experimentalist and nano-manufacturing companies. 
 
 
 ### 1.2 References
@@ -56,7 +58,7 @@ The current release to select the types of cations and anions, they want to stud
 
 ### 2.1 Product Background and Strategic Fit
 <!--Provide context for the proposed product.  Is this a completely new projects, or next version of an existing project? This can include a description of any contextual research, or the status of any existing prototype application.  If this SPD describes a component, describe its relationship to larger system. Can include diagrams.-->
-The tool is first of its kind to the best of our knoweldge.
+The tool is first of its kind to the best of our knoweldge. 
 
 ### 2.2 Scope and Limitations for Current Release
 <!--List the all planned goals/features for this release.  These should be links to issues.  Add a new subsection for each release.  Equally important, document feature you explicity are not doing at this time-->
@@ -124,9 +126,10 @@ Features used
 Experience level
 Type of interaction
 Provide links to any user surveys, questionnaires, interviews, feedback or other relevant information.-->
-Two class of users are considered:
+Three classes of users are considered:
 1. Academic users (experimentalist and computationalist): The tool is designed to be simple for user in order to make it easy for experimentalist to use it by selecting the right materials. Computationalist also have the option to add further algorithms as well as data into the dataset of MA-VELP. Basic understanding of coding language and python is required to use the tool. Users can either use it as an educational tool for applied machine learning in physics and chemistry or as a tool to guide their research.
 2. Industry users: Similar to experimentalist they can use tool simply and guid their manfacturing toward more efficient one. Basic understanding of coding language and python is required to use the tool. The tool can guide the user toward more efficient process during the manufacturing of 2D materials.
+3. Educatioanl users: The tool can be used in the context of various courses such as material discovery and chemical process course. It gives users (students) first involvement with machine learnign and optimization process in the context of physical problems. Students without any implementaiton get to use machine learning algorithm without dealing with implementation steps and experiment with improving a design process.
 
 ### 3.2 User Requirements
 <!-- Provide a list of issue links to document the main set of user requirements to be satisfied by this release.  Use the user requirement template to draft thense issues.  A well written user requirement should be easy to justify (Rational) and should be testable.  List in order of priority as must have, should have or nice to have for each use case. -->
