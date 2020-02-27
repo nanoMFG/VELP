@@ -7,6 +7,7 @@ all:
 	@echo "Run 'make install'"
 
 mavelp:
+	@echo ${DESTDIR}
 	cd .. && pip install -t ${DESTDIR} .
 
 install:
@@ -19,4 +20,4 @@ distclean: clean
 	rm -rf ${DESTDIR}/mavelp
 	rm -rf ${DESTDIR}/bin
 
-.PHONY: all install clean distclean
+.PHONY: all mavelp install clean distclean
