@@ -21,6 +21,25 @@ Future Release Note:
   - Pip installation seems like a good option
   - Python test 
 
+## Installation
+
+#### Manual python install for testing
+```
+pip install -e .
+```
+
+#### Jupyter Notebook Testing
+
+#### nanoHUB Testing (Workspace)
+Install to `./bin` using makefile in `./src`
+```
+$ cd src
+$ make distclean
+$ make install
+```
+
+Test by launching the jupyter notebook tool on nanohub.  
+
 ## Versioning
 
 Version numbers are based on the [SemVer](http://semver.org/) versioning convention. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
@@ -41,7 +60,7 @@ $ 0.0.0
 $ bumpversion build
 ```
 
-[Bump2version](https://github.com/c4urself/bump2version) is used to increment the version and apply tags.  The basic setup follow tha guidlines illustrated [here](https://medium.com/@williamhayes/versioning-using-bumpversion-4d13c914e9b8).  All version bumps should happen on a clean working copy of the repository, after the last commit for that version has been pushed.  The push of the the `bump2version` changes will comprise the version.
+[Bump2version](https://github.com/c4urself/bump2version) is used to increment the version and apply tags.  The basic setup used here follows the guidlines illustrated [here](https://medium.com/@williamhayes/versioning-using-bumpversion-4d13c914e9b8).  All version bumps should happen on a clean working copy of the repository, after the last commit for that version has been pushed.  The push of the the `bump2version` changes will comprise the version.
 **Relavant files**
 ```
 .bumpversion.cfg
@@ -51,10 +70,7 @@ setup.py
 ```
 
 **examples**
-Create initial testing release:
-```
-bump
+Create initial testing release for upcoming #.#.# :
 ```
 
-### Development Versions
-For commits that are to be merged to master for further testing, a development version should be created.  
+```
