@@ -13,10 +13,10 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import matplotlib.image as mpimg
 
-MAVELP_DATA_DIR=""
-MAVELP_DATA_DIR=os.environ.get("MAVELP_DATA_DIR")
+MAVELP_DATA_PATH="./data/data.dat"
+MAVELP_DATA_PATH=os.environ.get("MAVELP_DATA_PATH")
 
-Materials, Features, Labels = read_data_global(MAVELP_DATA_DIR)
+Materials, Features, Labels = read_data_global(MAVELP_DATA_PATH)
 
 class tabs():
     

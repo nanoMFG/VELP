@@ -8,7 +8,7 @@ all:
 	@echo "Run 'make install'"
 
 ${DESTDIR}/mavelp/__init__.py: mavelp/__init__.py mavelp/data_tool.py mavelp/gui.py mavelp/kernel_methods.py mavelp/neural_network.py
-	cd .. && pip install -t ${DESTDIR} .
+	cd .. && pip install -I -U --force-reinstall -t ${DESTDIR} .
 
 ${DESTDIR}/data/data.dat: ${DATA_SRCDIR}/data.dat
 	cp -r ../data ${DESTDIR}
