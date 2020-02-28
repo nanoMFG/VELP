@@ -1,7 +1,7 @@
 # MA-VELP
 Machine-learning Assisted Virtual Exfoliation via Liquid Phase
 
-Python codes are located in the src directory:
+Python codes are located in the `src/mavelp` directory:
   1. data_tool.py : manages file reading and data management
   2. gui.py :  graphical user interface supports user interface and communication between various codes
   3. kernel_method.py : kernele ridge regression is implemented for MAVELP dataset and used for fitting, prediction and score, additionally it supports optimization 
@@ -9,12 +9,11 @@ Python codes are located in the src directory:
 
 Data are located in the data directory:
   1. data.dat : data for MA-VELP
-  
- 
+   
 Usage: 
-  Simply copy src and data files to the working directory, you can then use MA-VELP
-  MA-VELP-App.ipynb to have access to the GUI
-  
+  - Access the live application at [https://nanohub.org/tools/mavelp](https://nanohub.org/tools/mavelp)
+  - To install locally, see Installation (below)
+  - Launch MA-VELP-App.ipynb to have access to the GUI
   
 Future Release Note: 
   - We might move optimization to a separate code
