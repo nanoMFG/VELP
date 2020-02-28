@@ -6,14 +6,17 @@ import re
 import sys
 from IPython.display import display, clear_output
 from ipywidgets import Button, Layout
-from src.kernel_methods import *
-from src.neural_network import *
-from src.data_tool import *
+from mavelp.kernel_methods import *
+from mavelp.neural_network import *
+from mavelp.data_tool import *
 import matplotlib.pyplot as plt
 from PIL import Image
 import matplotlib.image as mpimg
 
-Materials, Features, Labels = read_data_global()
+MAVELP_DATA_DIR=""
+MAVELP_DATA_DIR=os.environ.get("MAVELP_DATA_DIR")
+
+Materials, Features, Labels = read_data_global(MAVELP_DATA_DIR)
 
 class tabs():
     
@@ -22,7 +25,11 @@ class tabs():
         Initialize a tab with multiple childrens (len(tablist))
         It will generate each tab with its own function. Ensure that functions are defined.
         
-        """        
+        """
+        if not os.path.exists(MAVELP_DATA_DIR):
+            print(f"Data diretory:{MAVELP_DATA_DIR} does not exist")
+            raise FileNotFoundError
+
         self.tablist = tablist
         self.tab = widgets.Tab()
         
