@@ -19,7 +19,7 @@ Darren Adams | developer | dadamsncsa | dadamsncsa | dadams@illinois.edu | activ
 
 ## 1. Introduction
 <!-- A  concise description of the current iteration of work. -->
-Currently, the machine learning algorithm and GUI are implemented in Python. Algorithms and their compatibility are tested. 
+We are employing machine learning algorithm on the high-throughput computational data to improve solvent selection for exfoliation via liquid phase. The code is written in python, and uses standard python libraries such numpy, sklearn, ipywidget, tensorflow 1.x. The GUI is avialable through jupyter notebook.
 
 ### 1.1 Purpose and Vision Statement
 <!--Why are we building this tool? What is the key benefit? How does it relate to existing tools and existing software? How does it fit into the overall objectives for the nanoMFG node? Who will use it?-->
