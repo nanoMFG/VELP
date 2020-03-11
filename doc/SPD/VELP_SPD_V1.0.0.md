@@ -137,7 +137,7 @@ Three classes of users are considered:
 
 ### 3.3 Proposed User Interface
 <!--Could include drawn mockups, screenshots of prototypes, comparison to existing software and other descriptions.-->
-<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide10.JPG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Start_page.png"> <br/>
 <img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG"> <br/>
 <img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG">
 
