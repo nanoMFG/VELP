@@ -137,9 +137,12 @@ Three classes of users are considered:
 
 ### 3.3 Proposed User Interface
 <!--Could include drawn mockups, screenshots of prototypes, comparison to existing software and other descriptions.-->
-<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Start_page.png"> <br/>
-<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide8.JPG"> <br/>
-<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Slide9.JPG">
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Start_page.PNG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Method_KR.PNG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Method_NN.PNG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Design.PNG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/Design_predict.PNG"> <br/>
+<img width="800" src="https://github.com/nanoMFG/VELP/blob/moradza-patch-2/doc/templates/End_Page.PNG"> <br/>
 
 ### 3.4 Documentation Plan
 <!-- List planned documentation activities -->
