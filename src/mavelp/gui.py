@@ -26,8 +26,8 @@ class tabs():
         It will generate each tab with its own function. Ensure that functions are defined.
         
         """
-        if not os.path.exists(MAVELP_DATA_DIR):
-            print(f"Data diretory:{MAVELP_DATA_DIR} does not exist")
+        if not os.path.exists(MAVELP_DATA_PATH):
+            print(f"Data diretory:{MAVELP_DATA_PATH} does not exist")
             raise FileNotFoundError
 
         self.tablist = tablist
