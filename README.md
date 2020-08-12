@@ -28,6 +28,10 @@ pip install -e .
 ```
 
 #### Jupyter Notebook Testing
+* clone or otherwise upload the repo to you nanoHUB workspace.  Be sure to checkout the appropriate branch.
+* Run `make install` in `/src` directory
+* Launch the Jupyter Notebook tool: https://nanohub.org/tools/jupyter
+* open `MA-0VELP_App.ipynb` in `/bin`.
 
 #### nanoHUB Testing (Workspace)
 Install to `./bin` using makefile in `./src`
