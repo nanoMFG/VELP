@@ -8,13 +8,14 @@ from IPython.display import display, clear_output
 from ipywidgets import Button, Layout
 from mavelp.kernel_methods import *
 from mavelp.neural_network import *
-from mavelp.data_tool import *
+from mavelp.data_tool import read_data_global
 import matplotlib.pyplot as plt
 from PIL import Image
 import matplotlib.image as mpimg
 
-MAVELP_DATA_PATH="./data/data.dat"
 MAVELP_DATA_PATH=os.environ.get("MAVELP_DATA_PATH")
+if MAVELP_DATA_PATH is None:
+    MAVELP_DATA_PATH="./data/data.dat"
 
 Materials, Features, Labels = read_data_global(MAVELP_DATA_PATH)
 

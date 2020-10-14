@@ -7,15 +7,15 @@ def read_data_global(path='./data/data.dat'):
     
     cnt = 0
     print(path)
+    data = []
     with open(path, 'r') as f:
-        data = []
-        file = f.read().split('\n')
-        for line in file:
-            if cnt == 0:
-                All_material = line.split('\t')[:-1]
-            else: 
-                data.append([float(a) for a in  line.split('\t')])
-            cnt += 1
+        #file = f.read().split('\n')
+
+        All_material = f.readline().split('\t')[:-1]
+
+        for line in f:
+            data.append([float(a) for a in  line.split('\t')])
+    
     data = np.array(data)
         
     return All_material, data[:,:-1], data[:,-1].reshape((-1,1))
