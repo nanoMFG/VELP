@@ -38,6 +38,9 @@ class tabs():
         
         self.Materials_List = ['BPY', 'PY','PF6','TF','TFSI','DCA']
         self.Materials = Materails
+        self.labels = None
+        self.features = None
+        
         
         for name in self.tablist:
             if name == 'MA-VELP':
@@ -58,7 +61,7 @@ class tabs():
     
     def generate_docs(self):
          
-        discription_text = "Machine-Learned Assisted Virtual Exfoliation in Liquid Phase(MA-VELP):\n\n\n \n\
+        discription_text = "Machine-Learning Assisted Virtual Exfoliation via Liquid Phase(MA-VELP):\n\n\n \n\
         Based on the dataset obtained from high-throughput computational study, MAVELP employes machine learning algorithms to screen for optimal solvent based on the user's material selection for exfoliation process via liquid phase. Currently, MAVELP uses potential of mean force as the selection criterion! MAVELP developed at University of Illinois at Urbana-Champaign under Nano-Manufacturing Group is pushing the boundaries of Exfoliation Process Solvent Design! \
             \n \n \n \n \n \nFor assitant contact: moradza2@illinois.edu"
             
@@ -100,20 +103,25 @@ class tabs():
                 with output:
                     print("Starting to fit!")
                 
-                self.ml = Kernel_Optimization(dict_mat=self.dict_mat, kernel_type=self.method_options_kr_type.value , CV=self.method_options_kr_cv.value, X=Features, y=Labels, All_material=Materials)
+                self.ml = Kernel_Optimization(dict_mat=self.dict_mat, kernel_type=self.method_options_kr_type.value ,\
+                                              CV=self.method_options_kr_cv.value, X=self.features, y=self.labels,\
+                                              All_material=[l for l in Materials if l[:-1] in self.Materials])
                 
                 with output:
                     print("Kernel is fitted!")
-                    R2 = self.ml.kr.score(Features,Labels )
+                    R2 = self.ml.kr.score(self.features,self.labels)
+                    print("MSE: " , np.mean((self.ml.kr_func(self.features)-self.labels)**2))
                     print("R^2: ", np.round(R2))
             elif self.method.value == 1:
                 self.progress.value = 0    
                 self.progress.layout.visibility = 'visible'
                 
-                self.ml = DNN(n_dims=6, dnn_features=[self.methods_options_dnn_h1.value, self.methods_options_dnn_h2.value,\
+                self.ml = DNN(dict_mat=self.dict_mat, dnn_features=[self.methods_options_dnn_h1.value, self.methods_options_dnn_h2.value,\
                                                   self.methods_options_dnn_kp.value, self.methods_options_dnn_lr.value,\
                                                   self.method_options_dnn_nsteps.value],\
-                                                  activation_name=[self.methods_options_dnn_h1_f.value, self.methods_options_dnn_h2_f.value], X=Features,y=Labels )
+                                                  activation_name=[self.methods_options_dnn_h1_f.value, self.methods_options_dnn_h2_f.value],\
+                                                  X=self.features, y=self.labels,\
+                                                  All_material=[l for l in Materials if l[:-1] in self.Materials])
                 num_shows = int(self.method_options_dnn_nsteps.value/self.method_options_dnn_show_nsteps.value)
                 cur_shows = 0
                 Losses = np.zeros((num_shows))
@@ -293,7 +301,7 @@ class tabs():
             )
         self.AnionCell =widgets.SelectMultiple(
                 options=['PF6', 'TF', 'TFSI', 'DCA'],
-                value=['TF'],
+                value=['TF', 'TFSI'],
                 description='Anions',
                 disabled=False
             )
@@ -325,9 +333,32 @@ class tabs():
                     output_str += v+", "
                     self.dict_mat[v]= '-'
                 print(output_str[:-2])
+                if len(self.Materials) < 3:
+                    print("Your material selection should include at least three components!")
+                    
+                    
             t = list(self.tab.children)
             t[2] = self.generate_design()
             self.tab.children = t
+            
+            self.cols_cat = [cnt for  cnt, m in enumerate(Materials) if m[:-1] in self.Materials and m[-1]=='+']
+            self.cols_ani = [cnt for  cnt, m in enumerate(Materials) if m[:-1] in self.Materials and m[-1]=='-']
+            self.cols_all = [cnt for  cnt, m in enumerate(Materials) if m[:-1] in self.Materials ]
+            
+            self.features = []
+            self.labels = []
+            
+            for i in range(Features.shape[0]):
+                if np.abs(np.sum(Features[i,self.cols_cat])-1) < 0.2  and np.abs(np.sum(Features[i,self.cols_ani])-1) < 0.2:
+                    self.features.append(Features[i,self.cols_all])
+                    self.labels.append(Labels[i])
+                    
+            self.features = np.array(self.features)
+            self.labels = np.array(self.labels)
+            #print(self.labels)
+            #print(self.features)
+            
+            
             
         self.button.on_click(on_button_clicked)
             
@@ -364,7 +395,7 @@ class tabs():
             orientation='horizontal',readout=True,
             readout_format='d', style=style)
         
-        self.Max_Sigma = widgets.BoundedFloatText(value=20000,min=0., max = 1e9,step=10.0,
+        self.Max_Sigma = widgets.BoundedFloatText(value=200,min=0., max = 1e9,step=10.0,
             description='Max constraint coeff.:',
             disabled=False, continuous_update=False,
             orientation='horizontal',readout=True,
@@ -398,7 +429,7 @@ class tabs():
             self.progress_design.layout.visibility = 'visible'
             
             
-            optimal_pt = np.random.uniform(0,1, len(Materials))
+            optimal_pt = np.random.uniform(0,1, len(self.Materials))
             for cnt, sigma in enumerate(np.logspace(self.Min_Sigma.value, self.Max_Sigma.value, self.Sigma_Steps.value )):
                 optimal_pt = self.ml.minimize_func(optimal=optimal_pt, sig=sigma, i = cnt)
                 k = (10*(cnt+1)/self.Sigma_Steps.value)
@@ -406,9 +437,8 @@ class tabs():
             self.output.clear_output()
             with self.output:
                 print("Optimized Solvent: ")
-                for i in range(len(Materials)):
-                    if Materials[i][:-1] in self.dict_mat.keys():
-                        print(Materials[i], " : ",np.round(optimal_pt[i],3))
+                for i in range(len(self.Materials)):
+                    print(self.Materials[i], " : ",np.round(optimal_pt[i],3))
             self.savesolvent_button.layout.visibility = 'visible'
             self.savesolvent_name.layout.visibility = 'visible'
             
@@ -454,7 +484,7 @@ class tabs():
         def click_button(b):
             self.Value_box.clear_output()
             with self.Value_box:
-                x = np.zeros((len(Materials)))
+                x = np.zeros((len(self.Materials)))
                 
                 sum_molar_cat =  np.sum([self.Prediction_Box[cnt].value for cnt in range(len(self.CationCell.value))])
                 
@@ -466,24 +496,24 @@ class tabs():
                 for cnt in range(len(self.AnionCell.value)):
                     print(" Molar frac. : ", np.round(self.Prediction_Box[cnt+len(self.CationCell.value)].value/sum_molar_an,3),'\n')
                     
-                for i in range(len(Materials)):
+                for i in range(len(self.Materials)):
                     for cnt in range(len(self.CationCell.value)):
-                        if Materials[i][:-1] == self.CationCell.value[cnt]:
+                        if self.Materials[i] == self.CationCell.value[cnt]:
                             x[i] = np.round(self.Prediction_Box[cnt].value/sum_molar_cat,3)
                     for cnt in range(len(self.AnionCell.value)):
-                        if Materials[i][:-1] ==self.AnionCell.value[cnt]:
+                        if self.Materials[i] ==self.AnionCell.value[cnt]:
                              x[i] = np.round(self.Prediction_Box[cnt+len(self.CationCell.value)].value/sum_molar_an,3)
                 print(" Predicted PMF : ", self.ml.kr_func(x)[0][0])    
                 
         self.Prediction_Box[-1].on_click(click_button)
-
+        
         accordion = widgets.Accordion(children=[Optimizer_Box, HBoxPrediction, Warning_ouput],layout={'height': '375px', 'width': '1500px'} )
-        accordion.set_title(0, 'Optimization of solvent performance')
-        accordion.set_title(1, 'Prediction of solvent performance  ')
-        accordion.set_title(2, 'Warning for Prediction of solvent performance  ')    
+        accordion.set_title(0, 'Optimization of solvent performance.')
+        accordion.set_title(1, 'Prediction of solvent performance.')
+        accordion.set_title(2, 'Warning for Prediction of solvent performance.')    
         
         return widgets.VBox([accordion], layout={'height': '600px'})
-        
+    
     def generate_child(self, name):
         """
         generic child addition

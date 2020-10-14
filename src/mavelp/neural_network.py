@@ -9,7 +9,9 @@ import tensorflow as tf
 from tensorflow.contrib.layers import fully_connected as tf_layer
 
 class DNN():
-    def __init__(self, dict_mat=None, n_dims=10, dnn_features=[20,10, 0.75, 0.001, 1000000], activation_name=['tanh', 'tanh'], X=None, y=None):
+    def __init__(self, dict_mat=None, dnn_features=[20,10, 0.75, 0.001, 1000000], activation_name=['tanh', 'tanh'], X=None, y=None, All_material = ['K+','P-']):
+        
+        self.All_material = All_material
         tf.reset_default_graph()
         self.dict_mat = dict_mat
         self.activation_name = activation_name
@@ -23,7 +25,7 @@ class DNN():
         
         # num of training step and feature dimension
         self.num_step = dnn_features[4]
-        self.n_dims = n_dims
+        self.n_dims = len(self.All_material)
         
         # input and output placeholders
         self.x_placeholder = tf.placeholder(tf.float32, [None, self.n_dims])
@@ -50,7 +52,7 @@ class DNN():
         self.session.run(tf.global_variables_initializer())
         
     def kr_func(self, x):
-        x = x.reshape((-1, len(All_material)))
+        x = x.reshape((-1, len(self.All_material)))
         return self.session.run(self.predictions, feed_dict={self.x_placeholder: x , self.kp_placeholder: 1.0})
     
     def mlp(self, x, keep_prob):
@@ -79,26 +81,6 @@ class DNN():
     def load(self):
         
         return 1
-    
-    def read_data(self,path='data/data.dat'):
-        cnt = 0
-        with open(path, 'r') as f:
-            data = []
-            file = f.read().split('\n')
-            for line in file:
-                if cnt == 0:
-                    All_material = line.split('\t')[:-1]
-                else: 
-                    data.append([float(a) for a in  line.split('\t')])
-                cnt += 1
-        data = np.array(data)
-        print("Done with reading the dataset!")
-        print("Material List:")
-        print(All_material)
-        print("Numbers of data point:", cnt)
-        
-        return All_material, data[:,:-1], data[:,-1].reshape((-1,1))
-    
     def constraint(self, x):    
         ''' Create Constraints for physically-consistent solvent decomposition
             sum_cat x_i = 1.0 & sum_an x_i = 1.0 , x_i > 0 for both cation and anaion
@@ -107,15 +89,15 @@ class DNN():
         n_cations = 0
         n_anions = 0
         
-        for k in All_material:
+        for k in self.All_material:
             if k[-1] =='+':
                 n_cations += 1
             else:
                 n_anions += 1
-        n_constraints = len(All_material)+ 2
+        n_constraints = len(self.All_material)+ 2
         
-        for cnt, m in enumerate(All_material):
-            if self.dict_mat[m]:
+        for cnt, m in enumerate(self.All_material):
+            if m[:-1] in self.dict_mat.keys():
                 n_constraints -= 1
             if x[cnt] <0 or x[cnt] > 1:
                 n_constraints += 1
@@ -145,10 +127,10 @@ class DNN():
                 
         val_constraints[0] -= 1.0
         val_constraints[1] -= 1.0
-        
+                
         return val_constraints
 
-    def minimize_func(self, optimal, sig, i=0):
+    def minimize_func(self, optimal, sig,i=0):
         if i==0:
             optimal = self.X[np.random.randint(self.X.shape[0])]
         def funct(x):    
@@ -162,3 +144,19 @@ class DNN():
         optimal = res.x
         
         return optimal
+    
+
+#     def minimize_func(self, optimal, sig, i=0):
+#         if i==0:
+#             optimal = self.X[np.random.randint(self.X.shape[0])]
+#         def funct(x):    
+#             const =  self.constraint(x)
+#             f = 0 
+#             for i in range(len(const)):
+#                 f += sig*max(0.0, const[i]**2)
+#             return self.kr_func(x) + f
+        
+#         res = minimize(funct, optimal, method='nelder-mead', options={'xtol': 1e-16, 'disp': False, 'maxiter': 1000})
+#         optimal = res.x
+        
+#         return optimal
