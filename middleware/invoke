@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/usr/bin/invoke_app "$@" -C "start_jupyter -t -T @tool MA-VELP-App.ipynb" \
+/usr/bin/invoke_app "$@" -C "start_jupyter -t -A -T @tool MA-VELP-App.ipynb" \
 -t mavelp \
 -u anaconda-6 \
 -e MAVELP_DATA_PATH=@tool/bin/data/data.dat
