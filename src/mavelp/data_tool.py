@@ -6,7 +6,7 @@ global All_material
 def read_data_global(path='./data/data.dat'):
     
     cnt = 0
-    print(path)
+    #print(path)
     data = []
     with open(path, 'r') as f:
         #file = f.read().split('\n')
