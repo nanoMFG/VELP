@@ -1,6 +1,9 @@
 ---
 name: User Requirement
 about: Write good user requirement issues.
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
