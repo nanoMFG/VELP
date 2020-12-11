@@ -12,6 +12,8 @@ from mavelp.data_tool import read_data_global
 import matplotlib.pyplot as plt
 from PIL import Image
 import matplotlib.image as mpimg
+import markdown 
+from ipywidgets import HTML
 
 MAVELP_DATA_PATH=os.environ.get("MAVELP_DATA_PATH")
 if MAVELP_DATA_PATH is None:
@@ -21,64 +23,28 @@ Materials, Features, Labels = read_data_global(MAVELP_DATA_PATH)
 
 class tabs():
     
-    def __init__(self, tablist= ['Material Selction', 'Method Selection', 'Design', 'MA-VELP'], Materails=['BPY', 'TF']):
+    def __init__(self, tablist= ['Material Selection', 'Method Selection', 'Design', 'MA-VELP'], Materails=['BPY', 'TF'], tab=None):
         """
         Initialize a tab with multiple childrens (len(tablist))
         It will generate each tab with its own function. Ensure that functions are defined.
-        
         """
         if not os.path.exists(MAVELP_DATA_PATH):	
             print(f"Data diretory:{MAVELP_DATA_PATH} does not exist")	
             raise FileNotFoundError	
             
         self.tablist = tablist
-        self.tab = widgets.Tab()
-        
+        self.tab = tab
         self.state = 1 # 1 material selection, 2 method selection, 3 design step
-        
-        self.tab.children = ()
-        
         self.Materials_List = ['BPY', 'PY','PF6','TF','TFSI','DCA']
-        
         self.Materials = Materails
-        
         self.labels = None
         self.features = None
-        
-        
-        for name in self.tablist:
-            if name == 'MA-VELP':
-                self.tab.children += (self.generate_docs(),)
-                
-            elif name == 'Material Selction':
-                self.tab.children += (self.generate_materials(),)
-                
-            elif name == 'Method Selection':
-                self.tab.children += (self.generate_method(), )
-                
-            elif name == 'Design':
-                self.tab.children += (self.generate_design(),)
-                
-            else:
-                raise NameError('Wrong Tab name inserted: ('+ name+')')
-                
-        for cnt, name in enumerate(self.tablist):
-            self.tab.set_title(cnt, name)
-        
-        display(self.tab)
     
     def generate_docs(self):
-         
-        discription_text = "Machine-Learning Assisted Virtual Exfoliation via Liquid Phase(MA-VELP):\n\n\n \n\
-        Based on the dataset obtained from high-throughput computational study, MAVELP employes machine learning algorithms to screen for optimal solvent based on the user's material selection for exfoliation process via liquid phase. Currently, MAVELP uses free energy barrier as the selection criterion! MAVELP developed at University of Illinois at Urbana-Champaign under Nano-Manufacturing Group in order to pushthe boundaries of Exfoliation Process Solvent Design! \
-            \n \n \n \n \n \nFor assitant contact: moradza2@illinois.edu"
-            
-        output =  widgets.Output()
-        with output:
-            print(discription_text)
-            print("\nDevelopers: Alireza Moradzadeh, Darren Adams, and Narayana R. Aluru")
-            
-        return widgets.VBox([output], layout={'height': '400px'})
+        """ Depreciated for now.  For some reason display in from within a function will not correctly render HTML in an output widget
+        Therefore, the description text was moved to the notebook itself and the tab definitiona and dispiay also moved there.
+        """
+        pass
     
     def generate_method(self):
         """
