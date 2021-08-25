@@ -29,7 +29,7 @@ class Kernel_Optimization():
                          for l in np.logspace(-2, 2, 100)]}
             
         self._CV = CV
-        self.kr= GridSearchCV(KernelRidge(), iid=True, cv=self._CV, param_grid=param_grid)
+        self.kr= GridSearchCV(KernelRidge(), cv=self._CV, param_grid=param_grid)
         
         self.X , self.y = X, y
 
